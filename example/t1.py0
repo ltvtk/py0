@@ -1,0 +1,12 @@
+from turtle import *
+
+function square(a)
+ repeat 4
+    forward(a)
+  right(90)
+end
+end
+
+square(100)
+
+mainloop()
