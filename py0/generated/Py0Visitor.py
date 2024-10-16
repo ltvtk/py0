@@ -69,5 +69,10 @@ class Py0Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by Py0Parser#baseExpr.
+    def visitBaseExpr(self, ctx:Py0Parser.BaseExprContext):
+        return self.visitChildren(ctx)
+
+
 
 del Py0Parser

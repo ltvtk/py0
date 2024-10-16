@@ -9,6 +9,7 @@ class Py0ToPythonTranspiler(Py0Listener):
         self.output = []
         self.indent = 0
         self.input_stream = input_stream
+        self.current_line = -1
 
     def get_indent(self):
         return '    ' * self.indent
@@ -68,23 +69,24 @@ class Py0ToPythonTranspiler(Py0Listener):
         start_index = ctx.start.start
         stop_index = ctx.stop.stop
         stmt = self.input_stream.getText(start_index, stop_index).strip()
-        # Convert arrow function if present
-        stmt = self.convert_arrow_function(stmt)
-        self.output.append(f"{self.get_indent()}{stmt}\n")
+        line_number = ctx.start.line
+        if line_number != self.current_line:
+            stmt = self.convert_arrow_function(stmt)
+            self.output.append(f"{self.get_indent()}{stmt}\n")
+            self.current_line = line_number
 
     def convert_arrow_function(self, stmt):
         # Patterns for different types of arrow functions
         pattern1 = r'^(\w+)\s*=\s*\(\s*(.*?)\s*\)\s*=>\s*(.*)$'
         pattern2 = r'^(\w+)\s*=\s*(\w+)\s*=>\s*(.*)$'
         pattern3 = r'^(\w+)\s*=\s*\(\s*\)\s*=>\s*(.*)$'
-        # New pattern for immediately invoked arrow function, possibly within another function
         pattern4 = r'(\w+\()?\(\((\w+)\)\s*=>\s*(.*?)\)\((.+?)\)\)?'
 
         if '=>' in stmt:
             # Check for immediately invoked arrow function
             match = re.search(pattern4, stmt)
             if match:
-                outer_func = match.group(1) or ''  # Could be 'print(' or empty
+                outer_func = match.group(1) or ''
                 param = match.group(2)
                 body = match.group(3)
                 arg = match.group(4)

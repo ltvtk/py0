@@ -116,5 +116,14 @@ class Py0Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by Py0Parser#baseExpr.
+    def enterBaseExpr(self, ctx:Py0Parser.BaseExprContext):
+        pass
+
+    # Exit a parse tree produced by Py0Parser#baseExpr.
+    def exitBaseExpr(self, ctx:Py0Parser.BaseExprContext):
+        pass
+
+
 
 del Py0Parser
