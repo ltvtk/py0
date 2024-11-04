@@ -11,6 +11,7 @@ scoop install git-with-openssh
 
 scoop install python
 
-pip install git+https://github.com/ltvtk/py0.git
+pip install py0
+
 ## use togther with our Vditor
 https://github.com/ltvtk/py0/releases/download/1.0/vditor.Setup.1.0.0.exe
