@@ -2,16 +2,7 @@
 Simple python-like scripting language for kids 
 ## description
 This is very simple scripting language which compile to python from file *.py0 to *.py and run them
-## installation on windows only, open your powershell as Admin
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-
-iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
-
-scoop install git-with-openssh
-
-scoop install python
-
+## you need to install python3 before install py0
 pip install py0ltv
-
-## use togther with our Vditor
+## then install Vditor to code
 https://github.com/ltvtk/py0/releases/download/1.0/vditor.Setup.1.0.0.exe
