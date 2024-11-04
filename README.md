@@ -7,6 +7,8 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
 
+scoop install git-with-openssh
+
 scoop install python
 
 pip install git+https://github.com/ltvtk/py0.git
