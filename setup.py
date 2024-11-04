@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='py0',
+    name='py0ltv',
     version='0.1.1',
     packages=find_packages(),
     install_requires=[
