@@ -9,3 +9,9 @@ scoop install git-with-openssh
 scoop install python
 scoop install mingw
 ```
+## C++ turtle graphic
+### Bạn cần tải 2 file CImg.h và CTurtle.hpp xuống và bỏ chung thư mục với code c++ chính. 
+### Sau đó mở VSCode chạy lệnh compile và run
+```
+g++ <file_name>.cpp -lgdi32;./a
+```
